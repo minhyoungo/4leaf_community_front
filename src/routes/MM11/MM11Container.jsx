@@ -16,7 +16,7 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import useInput from "../../Hooks/useInput";
 
-const MM11Container = () => {
+const MM11Container = ({ history }) => {
   //////////////////  VARIABLE            //////////////
   //////////////////  USE STATE          //////////////
   const [pages, setPages] = useState(null);
