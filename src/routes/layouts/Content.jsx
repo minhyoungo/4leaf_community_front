@@ -6,7 +6,15 @@ import MM01 from "../MM01";
 import MM02 from "../MM02";
 import MM10 from "../MM10";
 import MM10_D from "../MM10/MM10_D/MM10_D";
-
+import MM11 from "../MM11";
+import MM12 from "../MM12";
+import MM13 from "../MM13";
+import MM14 from "../MM14";
+import MM15 from "../MM15";
+import MM16 from "../MM16";
+import MM17 from "../MM17";
+import MM18 from "../MM18";
+import MM19 from "../MM19";
 const WholeWrapper = styled.div`
   width: 100%;
 `;
