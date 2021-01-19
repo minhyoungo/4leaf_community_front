@@ -45,65 +45,61 @@ const SubWrapper = styled.div`
   margin: 10px;
 `;
 
-const MM00Presenter = ({ noticeDatum }) => {
+const MM00Presenter = ({ noticeDatum, totalCnt, currentPage, limit }) => {
   return (
-    <WholeWrapper>
-      <MainWrapper>
-        <TableWrapper>
-          <TitleArea>게시판</TitleArea>
-          <TableHead>
-            <TableHeadLIST width={`100px`}>번호</TableHeadLIST>
-            <TableHeadLIST
-              fontWeight={`800`}
-              width={`calc(100% - 100px - 160px - 100px)`}
-              ju={`flex-start`}
-            >
-              제목
-            </TableHeadLIST>
-            <TableHeadLIST width={`160px`}>이름</TableHeadLIST>
-            <TableHeadLIST width={`100px`}>작성일</TableHeadLIST>
-          </TableHead>
+    <WholeWrapper width={`100%`} height={`500px`}>
+      <TableWrapper>
+        <TitleArea>게시판</TitleArea>
+        <TableHead>
+          <TableHeadLIST width={`100px`}>번호</TableHeadLIST>
+          <TableHeadLIST
+            fontWeight={`800`}
+            width={`calc(100% - 100px - 160px - 100px)`}
+            ju={`flex-start`}
+          >
+            제목
+          </TableHeadLIST>
+          <TableHeadLIST width={`160px`}>이름</TableHeadLIST>
+          <TableHeadLIST width={`100px`}>작성일</TableHeadLIST>
+        </TableHead>
 
-          {noticeDatum ? (
-            noticeDatum.length === 0 ? (
-              <EmptyList>등록된 게시글이 없습니다.</EmptyList>
-            ) : (
-              noticeDatum.map((data, idx) => {
-                return (
-                  <TableBody
-                  // key={data._id}
-                  // onClick={() => moveLinkHandler(data._id)}
-                  >
-                    <TableBodyLIST width={`100px`}>
-                      {/* {totalCnt - (currentPage * limit + idx) + ""} */}
-                    </TableBodyLIST>
-                    <TableBodyLIST
-                      fontWeight={`800`}
-                      width={`calc(100% - 100px - 160px - 100px)`}
-                      ju={`flex-start`}
-                    >
-                      {/* {data && data.title.length > 90
-                        ? data.title.substring(0, 90) + `…`
-                        : data.title} */}
-                      {data.title}
-                    </TableBodyLIST>
-                    <TableBodyLIST width={`160px`}>익명</TableBodyLIST>
-                    <TableBodyLIST width={`100px`}>
-                      {/* {data.createdAt.substring(0, 13)} */}
-                      {console.log(data.createdAt)}
-                    </TableBodyLIST>
-                  </TableBody>
-                );
-              })
-            )
+        {noticeDatum ? (
+          noticeDatum.length === 0 ? (
+            <EmptyList>등록된 게시글이 없습니다.</EmptyList>
           ) : (
-            <CircularIndeterminate />
-          )}
-        </TableWrapper>
-      </MainWrapper>
-      <SubWrapper>
-        <TitleArea>실검</TitleArea>
-      </SubWrapper>
+            noticeDatum.map((data, idx) => {
+              return (
+                <TableBody
+                  key={data._id}
+                  onClick={() => moveLinkHandler(data._id)}
+                >
+                  <TableBodyLIST width={`100px`}>
+                    {totalCnt - (currentPage * limit + idx) + ""}
+                  </TableBodyLIST>
+                  <TableBodyLIST
+                    fontWeight={`800`}
+                    width={`calc(100% - 100px - 160px - 100px)`}
+                    ju={`flex-start`}
+                  >
+                    {/* {data && data.title.length > 90
+                      ? data.title.substring(0, 90) + `…`
+                      : data.title} */}
+                    {data.title}
+                  </TableBodyLIST>
+                  <TableBodyLIST width={`160px`}>익명</TableBodyLIST>
+                  <TableBodyLIST width={`100px`}>
+                    {/* {data.createdAt.substring(0, 13)} */}
+                    {data.createdAt}
+                    {console.log(data.createdAt)}
+                  </TableBodyLIST>
+                </TableBody>
+              );
+            })
+          )
+        ) : (
+          <CircularIndeterminate />
+        )}
+      </TableWrapper>
     </WholeWrapper>
   );
 };

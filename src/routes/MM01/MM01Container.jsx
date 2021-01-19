@@ -45,14 +45,14 @@ const MM01Container = ({ history }) => {
 
     const { data } = await registUserMutation({
       variables: {
-        userName: newUserName.value,
         email: newEmail.value,
+        userName: newUserName.value,
         nickName: newNickName.value,
         mobile: newMobile.value,
       },
-    })
-      .then(alert("가입완료!!!!"))
-      .then(moveLinkHandler("signIn"));
+    });
+    // .then(alert("가입완료!!!!"))
+    // .then(moveLinkHandler("signIn"));
     console.log(data);
   };
 

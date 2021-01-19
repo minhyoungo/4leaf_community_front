@@ -95,29 +95,40 @@ const Header = ({ history }) => {
   return (
     <WholeWrapper>
       <SearchWrapper>
-        {/* <Logo>
+        <Logo>
           <Link to="/">
             <LogoImg src={`../../images/Logo.png`} />
           </Link>
-        </Logo> */}
+        </Logo>
         <SearchInput placeholder="🔍게시물 제목 통합검색" />
         <Just>a</Just>
       </SearchWrapper>
+
       <HeaderWrapper>
         <InnerWrapper width={`400px`}></InnerWrapper>
         <MenuWrapper>
-          <ActionSpan>공지사항</ActionSpan>
-          <ActionSpan>자유게시판 1</ActionSpan>
-          <ActionSpan>자유게시판 2</ActionSpan>
-          <ActionSpan>인기</ActionSpan>
-          <ActionSpan>꿀팁</ActionSpan>
-          <ActionSpan>썰</ActionSpan>
-          <ActionSpan>게임</ActionSpan>
-          <ActionSpan>자랑</ActionSpan>
-          <ActionSpan>짤</ActionSpan>
-          <ActionSpan>지식인</ActionSpan>
-          <ActionSpan></ActionSpan>
+          <ActionSpan onClick={() => moveLinkHandler("/notice")}>
+            공지사항
+          </ActionSpan>
+          <ActionSpan onClick={() => moveLinkHandler("/free1")}>
+            자유게시판 1
+          </ActionSpan>
+          <ActionSpan onClick={() => moveLinkHandler("/free2")}>
+            자유게시판 2
+          </ActionSpan>
+          <ActionSpan onClick={() => moveLinkHandler("/hot")}>인기</ActionSpan>
+          <ActionSpan onClick={() => moveLinkHandler("/honeyTip")}>
+            꿀팁
+          </ActionSpan>
+          <ActionSpan onClick={() => moveLinkHandler("/story")}>썰</ActionSpan>
+          <ActionSpan onClick={() => moveLinkHandler("/game")}>게임</ActionSpan>
+          <ActionSpan onClick={() => moveLinkHandler("/flex")}>자랑</ActionSpan>
+          <ActionSpan onClick={() => moveLinkHandler("/zzal")}>짤</ActionSpan>
+          <ActionSpan onClick={() => moveLinkHandler("/zisikin")}>
+            지식인
+          </ActionSpan>
         </MenuWrapper>
+
         <InnerWrapper width={`400px`}>
           <ActionSpan onClick={() => moveLinkHandler("/signIn")}>
             SIGN IN
@@ -130,5 +141,4 @@ const Header = ({ history }) => {
     </WholeWrapper>
   );
 };
-
 export default Header;

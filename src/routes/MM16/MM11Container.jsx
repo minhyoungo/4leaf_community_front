@@ -1,0 +1,15 @@
+import React from "react";
+import MM011resenter from "./MM11Presenter";
+
+const MM11Container = () => {
+  //////////////////  VARIABLE            //////////////
+  //////////////////  USE STATE          //////////////
+  //////////////////  USE REF           //////////////
+  //////////////////  USE CONTEXT      //////////////
+  //////////////////  USE QUERY       //////////////
+  /////////////////  USE MUTATION    //////////////
+  //////////////////  USE EFECT     //////////////
+  return <MM11Presenter />;
+};
+
+export default MM11Container;

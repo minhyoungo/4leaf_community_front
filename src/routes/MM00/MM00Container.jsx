@@ -14,7 +14,16 @@ const MM00Container = () => {
     data: noticeDatum,
     loading: noticeDatumLoading,
     refetch: noticeDatumRefetch,
-  } = useQuery(GET_POPULAR);
+  } = useQuery(
+    GET_POPULAR
+    //    {
+    //   variables: {
+    //     searchValue,
+    //     limit,
+    //     currentPage,
+    //   },
+    // }
+  );
   ////////////  USE MUTATION  //////////////
   ////////////  USE EFECT     //////////////
 
