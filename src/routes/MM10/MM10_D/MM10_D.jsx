@@ -134,7 +134,7 @@ export default withResizeDetector(({ match, history, width }) => {
   };
 
   const _moveBeforeBoard = () => {
-    console.log(noticeBeforeData.getNoticeBoardBeforeId);
+    // console.log(noticeBeforeData.getNoticeBoardBeforeId);
     if (noticeBeforeData.getNoticeBoardBeforeId === null) {
       toast.error("첫번째 글 입니다.");
 
@@ -242,7 +242,7 @@ export default withResizeDetector(({ match, history, width }) => {
             작성자
           </Board_D_List>
           <Board_D_List width={width < 700 ? `100%` : `calc((100% - 150px))`}>
-            {currentData ? currentData._id : <CircularIndeterminate />}
+            {currentData ? currentData.name : <CircularIndeterminate />}
           </Board_D_List>
           <Board_D_List
             width={width < 700 ? `100%` : `250px`}

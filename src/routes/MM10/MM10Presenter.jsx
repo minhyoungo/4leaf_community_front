@@ -176,6 +176,7 @@ const MM10Presenter = ({
                         : data.title}
                     </TableBodyLIST>
                     <TableBodyLIST width={`160px`}>관리자</TableBodyLIST>
+
                     <TableBodyLIST width={`100px`}>
                       {data.createdAt.substring(0, 13)}
                     </TableBodyLIST>

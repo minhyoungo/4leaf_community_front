@@ -204,6 +204,7 @@ const MM10Container = ({ history }) => {
       _valueChangeHandler={_valueChangeHandler}
       valueTitle={value.title}
       valueDesc={value.desc}
+      valueUserId={value.userId}
       addNotice={addNotice}
       searchValue={searchValue}
       setSearchValue={setSearchValue}

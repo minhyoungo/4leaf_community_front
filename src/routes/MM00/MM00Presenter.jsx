@@ -90,7 +90,7 @@ const MM00Presenter = ({ noticeDatum, totalCnt, currentPage, limit }) => {
                   <TableBodyLIST width={`100px`}>
                     {/* {data.createdAt.substring(0, 13)} */}
                     {data.createdAt}
-                    {console.log(data.createdAt)}
+                    {/* {console.log(data.createdAt)} */}
                   </TableBodyLIST>
                 </TableBody>
               );
