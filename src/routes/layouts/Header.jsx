@@ -43,7 +43,7 @@ const Just = styled.div`
   width: 300px;
   height: 120px;
 `;
-
+const Wrapper = styled.div``;
 const HeaderWrapper = styled.div`
   width: 100%;
   height: 70px;
@@ -87,6 +87,11 @@ const ActionSpan = styled.span`
   }
 `;
 
+const logout = (link) => {
+  history.push(`/${link}`);
+  sessionStorage.removeItem("login");
+};
+
 const Header = ({ history }) => {
   const moveLinkHandler = (link) => {
     history.push(link);
@@ -96,9 +101,7 @@ const Header = ({ history }) => {
     <WholeWrapper>
       <SearchWrapper>
         <Logo>
-          <Link to="/">
-            <LogoImg src={`../../images/Logo.png`} />
-          </Link>
+          <Link to="/">{/* <LogoImg src={`../../images/Logo.png`} /> */}</Link>
         </Logo>
         <SearchInput placeholder="🔍게시물 제목 통합검색" />
         <Just>a</Just>
@@ -118,7 +121,7 @@ const Header = ({ history }) => {
           </ActionSpan>
           <ActionSpan onClick={() => moveLinkHandler("/hot")}>인기</ActionSpan>
           <ActionSpan onClick={() => moveLinkHandler("/honeyTip")}>
-            꿀팁
+            댓글 게시판
           </ActionSpan>
           <ActionSpan onClick={() => moveLinkHandler("/story")}>썰</ActionSpan>
           <ActionSpan onClick={() => moveLinkHandler("/game")}>게임</ActionSpan>
@@ -130,12 +133,18 @@ const Header = ({ history }) => {
         </MenuWrapper>
 
         <InnerWrapper width={`400px`}>
-          <ActionSpan onClick={() => moveLinkHandler("/signIn")}>
-            SIGN IN
-          </ActionSpan>
-          <ActionSpan onClick={() => moveLinkHandler("/signUp")}>
-            SIGN UP
-          </ActionSpan>
+          {window.sessionStorage.getItem(`login`) ? (
+            <ActionSpan onClick={() => logout(``)}>LOG OUT</ActionSpan>
+          ) : (
+            <Wrapper>
+              <ActionSpan onClick={() => moveLinkHandler("/signIn")}>
+                SIGN IN
+              </ActionSpan>
+              <ActionSpan onClick={() => moveLinkHandler("/signUp")}>
+                SIGN UP
+              </ActionSpan>
+            </Wrapper>
+          )}
         </InnerWrapper>
       </HeaderWrapper>
     </WholeWrapper>

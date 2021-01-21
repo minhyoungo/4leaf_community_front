@@ -23,12 +23,12 @@ export const GET_NOTICEBOARD_DETAIL = gql`
 `;
 
 export const CREATE_NOTICE = gql`
-  mutation createNotice($title: String!, $description: String!) {
-    createNotice(
-      title: $title
-      description: $description
-      userId: "5fbf1da37f2dc780b7f5763b"
-    )
+  mutation createNotice(
+    $title: String!
+    $description: String!
+    $userId: String!
+  ) {
+    createNotice(title: $title, description: $description, userId: $userId)
   }
 `;
 

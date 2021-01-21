@@ -151,7 +151,7 @@ const MM11Presenter = ({
             <TableHeadLIST width={`160px`}>이름</TableHeadLIST>
             <TableHeadLIST width={`100px`}>작성일</TableHeadLIST>
           </TableHead>
-          {/* {console.log(noticeDatum)} */}
+          {console.log(noticeDatum)}
           {noticeDatum ? (
             noticeDatum.length === 0 ? (
               <EmptyList>등록된 게시글이 없습니다.</EmptyList>
@@ -288,6 +288,8 @@ const MM11Presenter = ({
                 name="desc"
                 value={valueDesc}
                 onChange={_valueChangeHandler}
+                size={`20`}
+                // type={`text`} name={`성명`} size="10" maxlength="8
               ></TextInput>
             </Wrapper>
           </DialogContent>

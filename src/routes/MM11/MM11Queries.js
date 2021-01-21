@@ -1,8 +1,8 @@
 import { gql } from "apollo-boost";
 
-export const VIEW_NOTICE = gql`
-  query viewAllNotice {
-    viewAllNotice {
+export const GET_FREE1 = gql`
+  query getAllFree1 {
+    getAllFree1 {
       _id
       title
       description
@@ -11,9 +11,9 @@ export const VIEW_NOTICE = gql`
   }
 `;
 
-export const GET_NOTICEBOARD_DETAIL = gql`
-  query getNoticeBoardDetail($id: String!) {
-    getNoticeBoardDetail(id: $id) {
+export const GET_FREE1BOARD_DETAIL = gql`
+  query getFree1BoardDetail($id: String!) {
+    getFree1BoardDetail(id: $id) {
       _id
       title
       description
@@ -22,9 +22,9 @@ export const GET_NOTICEBOARD_DETAIL = gql`
   }
 `;
 
-export const CREATE_NOTICE = gql`
-  mutation createNotice($title: String!, $description: String!) {
-    createNotice(
+export const CREATE_FREE1 = gql`
+  mutation createFree1($title: String!, $description: String!) {
+    createFree1(
       title: $title
       description: $description
       userId: "5fbf1da37f2dc780b7f5763b"
@@ -32,47 +32,47 @@ export const CREATE_NOTICE = gql`
   }
 `;
 
-export const UPDATE_NOTICE = gql`
-  mutation updateNotice($id: String!, $title: String!, $description: String!) {
-    updateNotice(id: $id, title: $title, description: $description)
+export const UPDATE_FREE1 = gql`
+  mutation updateFree1($id: String!, $title: String!, $description: String!) {
+    updateFree1(id: $id, title: $title, description: $description)
   }
 `;
 
-export const DELETE_NOTICE = gql`
-  mutation deleteNotice($id: String!) {
-    deleteNotice(id: $id)
+export const DELETE_FREE1 = gql`
+  mutation deleteFree1($id: String!) {
+    deleteFree1(id: $id)
   }
 `;
 
-export const GET_NOTICE_TOTALPAGE = gql`
-  query getNoticeBoardTotalPage($limit: Int!, $searchValue: String!) {
-    getNoticeBoardTotalPage(limit: $limit, searchValue: $searchValue)
+export const GET_FREE1_TOTALPAGE = gql`
+  query getFree1BoardTotalPage($limit: Int!, $searchValue: String!) {
+    getFree1BoardTotalPage(limit: $limit, searchValue: $searchValue)
   }
 `;
 
-export const GET_NOTICEBOARD_TOTALPAGE = gql`
-  query getNoticeBoardTotalPage($searchValue: String!, $limit: Int!) {
-    getNoticeBoardTotalPage(searchValue: $searchValue, limit: $limit)
+export const GET_FREE1BOARD_TOTALPAGE = gql`
+  query getFree1BoardTotalPage($searchValue: String!, $limit: Int!) {
+    getFree1BoardTotalPage(searchValue: $searchValue, limit: $limit)
   }
 `;
 
-export const GET_NOTICEBOARD_TOTALPAGE_ONLY_CNT = gql`
-  query getNoticeBoardTotalPageOnlyCnt($searchValue: String!, $limit: Int!) {
-    getNoticeBoardTotalPageOnlyCnt(searchValue: $searchValue, limit: $limit)
+export const GET_FREE1BOARD_TOTALPAGE_ONLY_CNT = gql`
+  query getFree1BoardTotalPageOnlyCnt($searchValue: String!, $limit: Int!) {
+    getFree1BoardTotalPageOnlyCnt(searchValue: $searchValue, limit: $limit)
   }
 `;
 
-export const GET_NOTICEBOARD_NEXT_ID = gql`
-  query getNoticeBoardNextId($id: String!) {
-    getNoticeBoardNextId(id: $id) {
+export const GET_FREE1BOARD_NEXT_ID = gql`
+  query getFree1BoardNextId($id: String!) {
+    getFree1BoardNextId(id: $id) {
       _id
     }
   }
 `;
 
-export const GET_NOTICEBOARD_BEFORE_ID = gql`
-  query getNoticeBoardBeforeId($id: String!) {
-    getNoticeBoardBeforeId(id: $id) {
+export const GET_FREE1BOARD_BEFORE_ID = gql`
+  query getFree1BoardBeforeId($id: String!) {
+    getFree1BoardBeforeId(id: $id) {
       _id
     }
   }

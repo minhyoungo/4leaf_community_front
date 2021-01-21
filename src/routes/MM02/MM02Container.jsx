@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import withSplitting from "../../Lib/withSplitting";
 const MM02Presenter = withSplitting(() => import("./MM02Presenter"));
 import useInput from "../../Hooks/useInput";
-import { TRY_LOGIN, CHECK_SECRET_CODE } from "./MM02Queries";
+import { TRY_LOGIN, CHECK_SECRET_CODE, GET_USER } from "./MM02Queries";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { toast } from "react-toastify";
@@ -23,6 +23,17 @@ const MM02Container = ({ history }) => {
   const [checkSecretCodeMutation] = useMutation(CHECK_SECRET_CODE);
 
   ////////////  USE EFECT     //////////////
+  const userData = async () => {
+    const { data } = await getUserMutation({
+      variables: {
+        email: inputEmail.value,
+        secretCode: assignment.value,
+      },
+    });
+
+    return { data };
+  };
+
   const loginClickHandler = async () => {
     const { data } = await tryLoginMutation({
       variables: {
@@ -45,12 +56,14 @@ const MM02Container = ({ history }) => {
       },
     });
 
-    if (data.checkSecretCode.result) {
+    if (data.checkSecretCode) {
       alert("로그인 성공 !!");
       history.push("/");
-
-      sessionStorage("IKAJDB&@@)JKGH", data.checkSecretCode.objectId);
-      window.location.reload();
+      window.sessionStorage.setItem(
+        "login",
+        JSON.stringify((await userData()).data)
+      );
+      history.push("/");
     } else {
       alert("인증코드가 잘못되었습니다.");
     }

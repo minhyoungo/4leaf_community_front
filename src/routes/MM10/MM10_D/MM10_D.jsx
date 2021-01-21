@@ -242,7 +242,7 @@ export default withResizeDetector(({ match, history, width }) => {
             작성자
           </Board_D_List>
           <Board_D_List width={width < 700 ? `100%` : `calc((100% - 150px))`}>
-            {currentData ? currentData.name : <CircularIndeterminate />}
+            {currentData ? currentData.Id : <CircularIndeterminate />}
           </Board_D_List>
           <Board_D_List
             width={width < 700 ? `100%` : `250px`}

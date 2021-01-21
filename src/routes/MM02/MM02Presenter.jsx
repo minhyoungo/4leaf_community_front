@@ -157,7 +157,7 @@ const Button = styled.button`
     color: ${(props) => props.theme.pointColor};
   }
 `;
-const MM04Presenter = ({
+const MM02Presenter = ({
   inputEmail,
   loginClickHandler,
   tab,
@@ -190,4 +190,4 @@ const MM04Presenter = ({
   );
 };
 
-export default MM04Presenter;
+export default MM02Presenter;

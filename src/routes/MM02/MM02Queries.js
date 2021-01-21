@@ -8,9 +8,6 @@ export const TRY_LOGIN = gql`
 
 export const CHECK_SECRET_CODE = gql`
   mutation checkSecretCode($email: String!, $code: String!) {
-    checkSecretCode(email: $emial, code: $code) {
-      result
-      objectId
-    }
+    checkSecretCode(email: $email, code: $code)
   }
 `;

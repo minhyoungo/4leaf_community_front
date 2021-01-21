@@ -3,13 +3,13 @@ import { useQuery, useMutation } from "react-apollo-hooks";
 import MM11Presenter from "./MM11Presenter";
 
 import {
-  VIEW_NOTICE,
-  CREATE_NOTICE,
-  UPDATE_NOTICE,
-  DELETE_NOTICE,
-  GET_NOTICE_TOTALPAGE,
-  GET_NOTICEBOARD_TOTALPAGE,
-  GET_NOTICEBOARD_TOTALPAGE_ONLY_CNT,
+  GET_FREE1,
+  CREATE_FREE1,
+  UPDATE_FREE1,
+  DELETE_FREE1,
+  GET_FREE1_TOTALPAGE,
+  GET_FREE1BOARD_TOTALPAGE,
+  GET_FREE1BOARD_TOTALPAGE_ONLY_CNT,
 } from "./MM11Queries";
 import { toast } from "react-toastify";
 import { confirmAlert } from "react-confirm-alert";
@@ -37,7 +37,7 @@ const MM11Container = ({ history }) => {
     data: noticeDatum,
     loading: noticeDatumLoading,
     refetch: noticeDatumRefetch,
-  } = useQuery(VIEW_NOTICE, {
+  } = useQuery(GET_FREE1, {
     variables: {
       searchValue,
       limit,
@@ -46,7 +46,7 @@ const MM11Container = ({ history }) => {
   });
 
   const { data: noticePageData, refetch: noticePageRefetch } = useQuery(
-    GET_NOTICE_TOTALPAGE,
+    GET_FREE1_TOTALPAGE,
     {
       variables: {
         searchValue,
@@ -59,7 +59,7 @@ const MM11Container = ({ history }) => {
     data: totalPageData,
     loading: totalPageLoading,
     refetch: totalPageRefetch,
-  } = useQuery(GET_NOTICEBOARD_TOTALPAGE, {
+  } = useQuery(GET_FREE1BOARD_TOTALPAGE, {
     variables: {
       searchValue,
       limit,
@@ -70,21 +70,21 @@ const MM11Container = ({ history }) => {
     data: totalPageOnlyCntData,
     loading: totalPageOnlyCntLoading,
     refetch: totalPageOnlyCntRefetch,
-  } = useQuery(GET_NOTICEBOARD_TOTALPAGE_ONLY_CNT, {
+  } = useQuery(GET_FREE1BOARD_TOTALPAGE_ONLY_CNT, {
     variables: {
       searchValue,
       limit,
     },
   });
   /////////////////  USE MUTATION    //////////////
-  const [createNotice] = useMutation(CREATE_NOTICE, {
+  const [createNotice] = useMutation(CREATE_FREE1, {
     variables: {
       title: value.title,
       description: value.desc,
     },
   });
   // const [deleteNotice] = useMutation(DELETE_NOTICE);
-  const [deleteNotice] = useMutation(DELETE_NOTICE);
+  const [deleteNotice] = useMutation(DELETE_FREE1);
   //////////////////  USE EFECT     //////////////
   useEffect(() => {
     noticeDatumRefetch();
@@ -136,7 +136,9 @@ const MM11Container = ({ history }) => {
       setValue("");
       _isDialogOpenToggle();
     } else {
-      toast.error("다시 시도해주세요");
+      noticeDatumRefetch();
+      noticePageRefetch();
+      _isDialogOpenToggle();
     }
   };
 
@@ -157,7 +159,7 @@ const MM11Container = ({ history }) => {
   };
 
   const moveLinkHandler = (idx) => {
-    history.push(`/notice-detail/${idx}`);
+    history.push(`/free1-detail/${idx}`);
   };
 
   const prevAndNextPageChangeNoticeHandler = (page) => {
@@ -176,7 +178,7 @@ const MM11Container = ({ history }) => {
 
   return (
     <MM11Presenter
-      noticeDatum={noticeDatum && noticeDatum.viewAllNotice}
+      noticeDatum={noticeDatum && noticeDatum.getAllFree1}
       currentPage={currentPage}
       pages={pages}
       limit={limit}
